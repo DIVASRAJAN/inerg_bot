@@ -3,6 +3,22 @@
 
 Domain-specific information retriever using Qdrant, LangChain wrappers and a Google Gemini LLM.
 
+## usage
+
+```
+git clone https://github.com/DIVASRAJAN/inerg_bot.git
+
+git checkout dev
+```
+
+download model from the drive and place it inside the folder (bge-reranker-v2-m3)
+
+model_link :
+```
+https://drive.google.com/file/d/1Eju09sIHoYt0CEBrR1xEmFzV5SzMvv0g/view?usp=sharing
+```
+
+
 ## Features
 - Ingests JSONL corpus, splits text into chunks and stores embeddings in Qdrant.
 - FastAPI service exposing a `/chat` endpoint that queries the agent pipeline.
@@ -48,6 +64,16 @@ Endpoints:
 
 Notes:
 - The app initializes heavy clients (LLM, embeddings, Qdrant, reranker) at startup using a lifespan handler. Ensure the server process has access to environment variables.
+
+- 
+```
+uvicorn api.endpoints:app 
+```
+you can access the swagger using 
+```
+http://127.0.0.1:8000/docs
+```
+
 
 ## project structure
 
